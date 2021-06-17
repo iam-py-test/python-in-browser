@@ -38,7 +38,7 @@ var main = async function(){
           }
           if(syscmd === "ls"){
             document.getElementById("output").innerText += "\n"
-            var files = window.fs.keys()
+            var files = Object.keys(window.fs)
             console.log(files)
           }
         }
