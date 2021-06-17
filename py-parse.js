@@ -17,7 +17,7 @@ var main = async function(){
       }
       
       if(splittext[t].startsWith("print(")){
-         document.getElementById("output").innerText += "\n" + splittext[t].replace("print(","").slice(0,-1).replaceAll("\"","").replaceAll("'","").replaceAll("\\n","\n")
+         document.getElementById("output").innerText += "\n" + splittext[t].replace("print(","").slice(0,-1).replaceAll("\"","").replaceAll("'","").replaceAll("“","").replaceAll("\\n","\n")
     }
       
       if(splittext[t].startsWith("import ")){
