@@ -12,3 +12,6 @@ a.disabled{
   color:lightgray;
   pointer-events: none;
 }
+a:active{
+  color:red;
+}
