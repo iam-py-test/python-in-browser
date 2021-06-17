@@ -6,8 +6,8 @@ var main = async function(){
     var splittext = text.split("\n")
     for(var t = 0;t < splittext.length;t++){
       console.log(t,splittext[t])
-      if(splittext[t].startsWith("print(\"")){
-         document.getElementById("output").innerText += "\n" + splittext[t].replace("print(\"","").slice(0,-2).replaceAll("\\n","\n")
+      if(splittext[t].startsWith("print(")){
+         document.getElementById("output").innerText += "\n" + splittext[t].replace("print(","").slice(0,-1).replaceAll(`\"`,"qESC").replaceAll("\"","").replaceAll("qESC","\"").replaceAll("\\n","\n")
     }
     }
   }
