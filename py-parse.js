@@ -1,6 +1,6 @@
 var main = async function(){
   document.getElementById('writepy').textContent = "print(\"Hi\")"
-  document.getElementById("output").textContent = "> Python"
+  document.getElementById("output").textContent = "> python"
   document.getElementById("run").onclick = async function(){
     var text = document.getElementById("writepy").innerText
     var splittext = text.split("\n")
@@ -11,6 +11,12 @@ var main = async function(){
     }
     }
   }
+  
+  
+  document.getElementById('clear').onclick = function(){
+    document.getElementById("output").textContent = '> python'
+  }
+  
 }
 window.jsload = true
 main().catch(function(err){
