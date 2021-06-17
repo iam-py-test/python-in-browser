@@ -12,7 +12,9 @@ var main = async function(){
     for(var t = 0;t < splittext.length;t++){
       console.log(t,splittext[t])
       
-      
+      if(splittext[t] === 'exit()'){
+        document.getElementById("output").innerText += "\nExited"
+      }
       
       if(splittext[t].startsWith("print(")){
          document.getElementById("output").innerText += "\n" + splittext[t].replace("print(","").slice(0,-1).replaceAll("\"","").replaceAll("'","").replaceAll("\\n","\n")
