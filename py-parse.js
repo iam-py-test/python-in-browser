@@ -26,7 +26,7 @@ var main = async function(){
         cmd = cmd.join(".") 
         console.log(cmd)
         if(cmd.startsWith("system(")){
-          var syscmd = cmd.replace("system(").replaceAll("\"","").replaceAll("'","").slice(0,-1)
+          var syscmd = cmd.replace("system(","").replaceAll("\"","").replaceAll("'","").slice(0,-1)
           console.log(syscmd)
           if(syscmd === "clear"){
             document.getElementById("output").textContent = "> python"
