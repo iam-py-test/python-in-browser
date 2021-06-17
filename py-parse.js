@@ -1,5 +1,7 @@
 var main = async function(){
   window.mods = {}
+  window.fs = {}
+  window.fs["main.py"] = {type:"file",contents:"print('1')"}
   
   
   document.getElementById('writepy').textContent = "print(\"Hi\")"
@@ -33,6 +35,11 @@ var main = async function(){
           }
           if(syscmd.startsWith("echo")){
             document.getElementById("output").innerText += "\n" + syscmd.replace("echo ","").replace("\\n","\n")
+          }
+          if(syscmd === "ls"){
+            document.getElementById("output").innerText += "\n"
+            var files = window.fs.keys()
+            console.log(files)
           }
         }
       }
