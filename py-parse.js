@@ -41,9 +41,8 @@ var main = async function(){
             var files = Object.keys(window.fs)
             console.log(files)
             files.forEach(function(f){
-              document.getElementById('output').textContent += f + "   "
+              document.getElementById('output').innerText += f + "   "
             })
-            
           }
         }
       }
