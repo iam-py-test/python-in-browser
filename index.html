@@ -18,7 +18,7 @@
     <script src="py-parse.js"></script>
     <script>
     window.onload = function(){
-      if(window.jsload !== true){
+      if(window.jsload !== true || typeof window.location !== "object"){
         alert("Script load failed. Please reload")
       }
     }
