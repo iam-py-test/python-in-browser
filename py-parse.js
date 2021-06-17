@@ -25,6 +25,16 @@ var main = async function(){
         cmd.shift(0)
         cmd = cmd.join(".") 
         console.log(cmd)
+        if(cmd.startsWith("system(")){
+          var syscmd = cmd.replace("system(").replaceAll("\"","").replaceAll("'","").slice(0,-1)
+          console.log(syscmd)
+          if(syscmd === "clear"){
+            document.getElementById("output").textContent = "> python"
+          }
+          if(syscmd.startsWith("echo")){
+            document.getElementById("output").innerText += "\n" + syscmd.replace("echo ","").replace("\\n","\n")
+          }
+        }
       }
     }
   }
