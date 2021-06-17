@@ -56,7 +56,7 @@ var main = async function(){
     document.getElementById("output").textContent = '> python'
   }
   document.getElementById("reset").onclick = function(){
-    var lastcmd = document.getElementById('output').split("\n")[-1]
+    var lastcmd = document.getElementById('output').innerText.split("\n")[-1]
     console.log(lastcmd)
     document.getElementById('output').textContent = lastcmd
     document.getElementById("output").innerText += "\n> python"
