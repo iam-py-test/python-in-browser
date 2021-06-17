@@ -8,3 +8,7 @@
 a{
   color:blue;
 }
+a.disabled{
+  color:lightgray;
+  pointer-events: none;
+}
