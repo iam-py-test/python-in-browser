@@ -21,7 +21,7 @@ var main = async function(){
       }
       
       if(splittext[t].startsWith("os.") & window.mods["os"] === true){
-        var cmd = splittext.split(".")
+        var cmd = splittext[t].split(".")
         cmd.shift(0)
         cmd = cmd.join(".") 
         console.log(cmd)
