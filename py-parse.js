@@ -40,6 +40,10 @@ var main = async function(){
             document.getElementById("output").innerText += "\n"
             var files = Object.keys(window.fs)
             console.log(files)
+            files.forEach(function(f){
+              document.getElementById('output').textContent += f + "   "
+            })
+            
           }
         }
       }
