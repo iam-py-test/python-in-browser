@@ -58,8 +58,11 @@ var main = async function(){
   document.getElementById("reset").onclick = function(){
     var lastcmd = document.getElementById('output').innerText.split("\n")[-1]
     console.log(lastcmd)
-    document.getElementById('output').textContent = lastcmd
-    document.getElementById("output").innerText += "\n> python"
+    document.getElementById('output').innerText = (lastcmd||"")
+    if(!!lastcmd){
+      document.getElementById("output").innerText += "\n"
+    }
+    document.getElementById("output").innerText += "> python"
     document.getElementById("writepy").textContent = "print(\"Hi\")"
     window.mods = {}
   }
