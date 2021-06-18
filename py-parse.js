@@ -10,6 +10,7 @@ var linuxMessage = `` /**/
   document.getElementById('writepy').textContent = "print(\"Hi\")"
   document.getElementById("output").innerText = "> python\n" + linuxMessage
   document.getElementById("run").onclick = async function(){
+    if(window.exited === true){return;}
     var text = document.getElementById("writepy").innerText
     var splittext = text.split("\n")
     for(var t = 0;t < splittext.length;t++){
@@ -17,6 +18,7 @@ var linuxMessage = `` /**/
       
       if(splittext[t] === 'exit()'){
         document.getElementById("output").innerText += "\nExited"
+        window.exited = true
       }
       
       if(splittext[t].startsWith("print(")){
@@ -69,6 +71,7 @@ var linuxMessage = `` /**/
     document.getElementById("output").textContent = '> python\n' + linuxMessage
   }
   document.getElementById("reset").onclick = function(){
+    window.exited = false
     var lastcmd = document.getElementById('output').innerText.split("\n")
     console.log(lastcmd)
     document.getElementById('output').innerText = (lastcmd||"")
