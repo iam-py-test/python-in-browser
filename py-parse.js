@@ -70,7 +70,7 @@ var linuxMessage = `` /**/
   }
   document.getElementById("reset").onclick = function(){
     document.getElementById('output').innerText = "\n"
-    document.getElementById("output").innerText += "> python\"
+    document.getElementById("output").innerText += "> python"
     document.getElementById("writepy").textContent = "print(\"Hi\")"
     window.mods = {}
   }
