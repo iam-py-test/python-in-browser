@@ -22,7 +22,7 @@ var linuxMessage = `` /**/
       
       if(splittext[t].startsWith("print") & (splittext[t].includes("\"")||splittext[t].includes("'")||splittext.includes("“")||splittext.includes("”")) ){
          document.getElementById("output").innerText += "\n" + splittext[t].replace("print(","").slice(0,-1).replaceAll("\"","").replaceAll("'","").replaceAll("“","").replaceAll("”","").replaceAll("\\n","\n")
-        return;
+        continue
     }
       console.log('pass check #1')
       if(splittext[t].startsWith("print")){
