@@ -10,7 +10,6 @@ var linuxMessage = `` /**/
   document.getElementById('writepy').textContent = "print(\"Hi\")"
   document.getElementById("output").innerText = "> python\n" + linuxMessage
   document.getElementById("run").onclick = async function(){
-    if(window.exited === true){return;}
     var text = document.getElementById("writepy").innerText
     var splittext = text.split("\n")
     for(var t = 0;t < splittext.length;t++){
@@ -19,6 +18,7 @@ var linuxMessage = `` /**/
       if(splittext[t] === 'exit()'){
         document.getElementById("output").innerText += "\nExited"
         window.exited = true
+        return;
       }
       
       if(splittext[t].startsWith("print(")){
