@@ -54,7 +54,8 @@ var linuxMessage = `` /**/
             var files = Object.keys(window.fs)
             console.log(files)
             files.forEach(function(f){
-              document.getElementById('output').innerText += f + "   "
+              document.getElementById('output').innerText += f + " "
+              document.getElementById("output").innerHTML += "&nbsp;&nbsp;"
             })
           }
           
