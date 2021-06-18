@@ -10,7 +10,7 @@ Type "help", "copyright", "credits" or "license" for more information.`
   
   
   document.getElementById('writepy').textContent = "print(\"Hi\")"
-  document.getElementById("output").textContent = "> python\n" + linuxMessage
+  document.getElementById("output").innerText = "> python\n" + linuxMessage
   document.getElementById("run").onclick = async function(){
     var text = document.getElementById("writepy").innerText
     var splittext = text.split("\n")
