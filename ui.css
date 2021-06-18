@@ -15,3 +15,6 @@ a.disabled{
 a:active{
   color:red;
 }
+a:focus{
+  color:red;
+}
