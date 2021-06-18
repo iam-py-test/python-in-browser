@@ -1,11 +1,16 @@
-var main = async function(){
+var linuxMessage = `
+Python 3.8.5 (default, May 27 2021, 13:30:53) 
+[GCC 9.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.`
+
+  var main = async function(){
   window.mods = {}
   window.fs = {}
   window.fs["main.py"] = {type:"file",contents:"print('1')"}
   
   
   document.getElementById('writepy').textContent = "print(\"Hi\")"
-  document.getElementById("output").textContent = "> python"
+  document.getElementById("output").textContent = "> python" + linuxMessage
   document.getElementById("run").onclick = async function(){
     var text = document.getElementById("writepy").innerText
     var splittext = text.split("\n")
