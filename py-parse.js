@@ -3,6 +3,7 @@ var linuxMessage = `` /**/
   var main = async function(){
   window.mods = {}
   window.fs = {}
+    window.vars = new Map([["__name__","__main__"]])
   window.fs["main.py"] = {type:"file",contents:"print('1')"}
   window.fs["log.txt"] = {type:"file",contents:"123"}
   
@@ -31,7 +32,9 @@ var linuxMessage = `` /**/
         var parts = splittext[t].split(" = ")
         var name = parts[0]
         var value = parts[1].slice(1,-1)
-        console.log(parts,name,value)
+        console.log(parts,name,value,window.vars)
+        window.vars.set(name,value)
+        console.log(window.vars)
       }
       
       if(splittext[t].startsWith("os.") & window.mods["os"] === true){
