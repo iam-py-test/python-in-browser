@@ -16,8 +16,6 @@ var linuxMessage = `` /**/
       console.log(t,splittext[t])
       
       if(splittext[t] === 'exit()'){
-        document.getElementById("output").innerText += "\nExited"
-        window.exited = true
         return;
       }
       
@@ -68,17 +66,11 @@ var linuxMessage = `` /**/
   
   
   document.getElementById('clear').onclick = function(){
-    document.getElementById("output").textContent = '> python\n' + linuxMessage
+    document.getElementById("output").textContent = '> python'
   }
   document.getElementById("reset").onclick = function(){
-    window.exited = false
-    var lastcmd = document.getElementById('output').innerText.split("\n")
-    console.log(lastcmd)
-    document.getElementById('output').innerText = (lastcmd||"")
-    if(!!lastcmd){
-      document.getElementById("output").innerText += "\n"
-    }
-    document.getElementById("output").innerText += "> python\n" + linuxMessage
+    document.getElementById('output').innerText = "\n"
+    document.getElementById("output").innerText += "> python\"
     document.getElementById("writepy").textContent = "print(\"Hi\")"
     window.mods = {}
   }
