@@ -20,9 +20,17 @@ var linuxMessage = `` /**/
         return;
       }
       
-      if(splittext[t].startsWith("print(")){
+      if(splittext[t].startsWith("print(") & (splittext[t].includes("\"")||splittext[t].includes("'")||splittext.includes("“")||splittext.includes("”")) ){
          document.getElementById("output").innerText += "\n" + splittext[t].replace("print(","").slice(0,-1).replaceAll("\"","").replaceAll("'","").replaceAll("“","").replaceAll("”","").replaceAll("\\n","\n")
+        return;
     }
+      if(splittext[t].startsWith("print(")){
+        console.log(window.vars.get(splittext[t].replace("print(","").slice(0,-1))
+        if(window.vars.get(splittext[t].replace("print(","").slice(0,-1)) !== undefined){
+          document.getElementById('output').innerText  += "\n" + window.vars.get(splittext[t].replace("print(","").slice(0,-1)
+        }
+      }
+      
       
       if(splittext[t].startsWith("import ")){
         window.mods[splittext[t].split(" ")[1]] = true
