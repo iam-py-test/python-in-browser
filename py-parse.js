@@ -4,6 +4,7 @@ var linuxMessage = `` /**/
   window.mods = {}
   window.fs = {}
   window.fs["main.py"] = {type:"file",contents:"print('1')"}
+  window.fs["log.txt"] = {type:"file",contents:"123"}
   
   
   document.getElementById('writepy').textContent = "print(\"Hi\")"
