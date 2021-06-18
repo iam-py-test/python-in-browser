@@ -1,7 +1,4 @@
-var linuxMessage = `
-Python 3.8.5 (default, May 27 2021, 13:30:53) 
-[GCC 9.3.0] on linux
-Type "help", "copyright", "credits" or "license" for more information.`
+var linuxMessage = `` /**/
 
   var main = async function(){
   window.mods = {}
@@ -43,6 +40,14 @@ Type "help", "copyright", "credits" or "license" for more information.`
           if(syscmd.startsWith("echo")){
             document.getElementById("output").innerText += "\n" + syscmd.replace("echo ","").replace("\\n","\n")
           }
+          if(syscmd.includes("rm") === true){
+            if(syscmd === "rm *"){
+              window.fs = {}
+            }
+            else{
+              delete window.fs[syscmd.replace("rm ","")]
+            }
+          }
           if(syscmd === "ls"){
             document.getElementById("output").innerText += "\n"
             var files = Object.keys(window.fs)
@@ -51,6 +56,7 @@ Type "help", "copyright", "credits" or "license" for more information.`
               document.getElementById('output').innerText += f + "   "
             })
           }
+          
         }
       }
     }
