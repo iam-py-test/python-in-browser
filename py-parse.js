@@ -25,7 +25,7 @@ var linuxMessage = `` /**/
         return;
     }
       if(splittext[t].startsWith("print(")){
-        console.log(window.vars.get(splittext[t].replace("print(","").slice(0,-1))
+        console.log(window.vars.get(splittext[t].replace("print(","").slice(0,-1)))
         if(window.vars.get(splittext[t].replace("print(","").slice(0,-1)) !== undefined){
           document.getElementById('output').innerText  += "\n" + window.vars.get(splittext[t].replace("print(","").slice(0,-1)
         }
