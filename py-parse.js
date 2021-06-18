@@ -27,6 +27,13 @@ var linuxMessage = `` /**/
         window.mods[splittext[t].split(" ")[1]] = true
       }
       
+      if(splittext[t].includes(" = \"") === true){
+        var parts = splittext[t].split(" = ")
+        var name = parts[0]
+        var value = parts[1].slice(1,-1)
+        console.log(parts,name,value)
+      }
+      
       if(splittext[t].startsWith("os.") & window.mods["os"] === true){
         var cmd = splittext[t].split(".")
         cmd.shift(0)
