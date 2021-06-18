@@ -10,7 +10,7 @@ Type "help", "copyright", "credits" or "license" for more information.`
   
   
   document.getElementById('writepy').textContent = "print(\"Hi\")"
-  document.getElementById("output").textContent = "> python" + linuxMessage
+  document.getElementById("output").textContent = "> python\n" + linuxMessage
   document.getElementById("run").onclick = async function(){
     var text = document.getElementById("writepy").innerText
     var splittext = text.split("\n")
@@ -38,7 +38,7 @@ Type "help", "copyright", "credits" or "license" for more information.`
           var syscmd = cmd.replace("system(","").replaceAll("\"","").replaceAll("'","").slice(0,-1)
           console.log(syscmd)
           if(syscmd === "clear"){
-            document.getElementById("output").textContent = "> python"
+            document.getElementById("output").textContent = "> python\n" + linuxMessage
           }
           if(syscmd.startsWith("echo")){
             document.getElementById("output").innerText += "\n" + syscmd.replace("echo ","").replace("\\n","\n")
@@ -58,16 +58,16 @@ Type "help", "copyright", "credits" or "license" for more information.`
   
   
   document.getElementById('clear').onclick = function(){
-    document.getElementById("output").textContent = '> python'
+    document.getElementById("output").textContent = '> python\n' + linuxMessage
   }
   document.getElementById("reset").onclick = function(){
-    var lastcmd = document.getElementById('output').innerText.split("\n")[-1]
+    var lastcmd = document.getElementById('output').innerText.split("\n")
     console.log(lastcmd)
     document.getElementById('output').innerText = (lastcmd||"")
     if(!!lastcmd){
       document.getElementById("output").innerText += "\n"
     }
-    document.getElementById("output").innerText += "> python"
+    document.getElementById("output").innerText += "> python\n" + linuxMessage
     document.getElementById("writepy").textContent = "print(\"Hi\")"
     window.mods = {}
   }
