@@ -54,6 +54,8 @@ var linuxMessage = `` /**/
           var toencode = cmd.replace("b64encode(bytes('","").slice(0,-12)
           console.log(toencode)
           console.log(btoa(toencode))
+          document.getElementById('output').innerText += "\n" + btoa(toencode)
+          window.vars.set("@@last_encoded",btoa(toencode))
         }
       }
       
