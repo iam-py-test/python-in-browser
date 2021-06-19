@@ -51,7 +51,7 @@ var linuxMessage = `` /**/
           cmd.shift(0)
           cmd = cmd.join(".")
           console.log(cmd)
-          var toencode = cmd.replace("b64encode(bytes('","").slice(0,-21)
+          var toencode = cmd.replace("b64encode(bytes('","").slice(0,-12)
           console.log(toencode)
           console.log(btoa(toencode))
         }
