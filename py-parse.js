@@ -55,7 +55,7 @@ var linuxMessage = `` /**/
           }
           if(window.config.errorMode === 2){
             document.getElementById('output').innerText += `\nTraceback (most recent call last):
-File "<stdin>", line 1, in <module>
+File "<stdin>", line ${t}, in <module>
 NameError: name '${splittext[t].replace("print(","").slice(0,-1)}' is not defined`
             return false;
           }
