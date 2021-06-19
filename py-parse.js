@@ -6,7 +6,7 @@ var linuxMessage = `` /**/
     window.vars = new Map([["__name__","__main__"]])
   window.fs["main.py"] = {type:"file",contents:"print('1')"}
   window.fs["log.txt"] = {type:"file",contents:"123"}
-  
+  window.config = {errorMode:2}
   
   document.getElementById('writepy').textContent = "print(\"Hi\")"
   document.getElementById("output").innerText = "> python\n" + linuxMessage
@@ -19,6 +19,23 @@ var linuxMessage = `` /**/
       if(splittext[t] === 'exit()'){
         return;
       }
+      if(splittext[t].startsWith("--config")){
+        if(splittext[t].startsWith("--config errormode")){
+           var mode = splittext[t].replace("--config errormode ")
+           if(mode === "0"){
+             window.config.errorMode = 0
+           }
+          if(mode === '1'){
+            window.config.errorMode = 1
+          }
+          if(mode === '2'){
+            window.config.errorMode
+          }
+          if(mode === "-log"){
+            document.getElementById('output').innerText += "\nError mode: " + window.config.errorMode
+          }
+           }
+      }
       
       if(splittext[t].startsWith("print") & (splittext[t].includes("\"")||splittext[t].includes("'")||splittext.includes("“")||splittext.includes("”")) ){
          document.getElementById("output").innerText += "\n" + splittext[t].replace("print(","").slice(0,-1).replaceAll("\"","").replaceAll("'","").replaceAll("“","").replaceAll("”","").replaceAll("\\n","\n")
@@ -28,6 +45,20 @@ var linuxMessage = `` /**/
         console.log(window.vars.get(splittext[t].replace("print(","").slice(0,-1)))
         if(window.vars.get(splittext[t].replace("print(","").slice(0,-1)) !== undefined){
           document.getElementById('output').innerText  += "\n" + window.vars.get(splittext[t].replace("print(","").slice(0,-1))
+        }
+        else{
+          if(window.config.errorMode === 0){
+            continue
+          }
+          if(window.config.errorMode === 1){
+            document.getElementById("output").innerText += "\nNameError: Name '{}' is not defined".replace("{}",splittext[t].replace("print(","").slice(0,-1))
+          }
+          if(window.config.errorMode === 2){
+            document.getElementById('output').innerText += `\nTraceback (most recent call last):
+File "<stdin>", line 1, in <module>
+NameError: name '${splittext[t].replace("print(","").slice(0,-1)}' is not defined`
+            return false;
+          }
         }
       }
       
