@@ -50,7 +50,10 @@ var linuxMessage = `` /**/
         if(cmd[1].startsWith('b64encode')){
           cmd.shift(0)
           cmd = cmd.join(".")
-          
+          console.log(cmd)
+          var toencode = cmd.replace("b64encode(bytes('","").slice(0,-21)
+          console.log(toencode)
+          console.log(btoa(toencode))
         }
       }
       
