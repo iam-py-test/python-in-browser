@@ -24,7 +24,6 @@ var linuxMessage = `` /**/
          document.getElementById("output").innerText += "\n" + splittext[t].replace("print(","").slice(0,-1).replaceAll("\"","").replaceAll("'","").replaceAll("“","").replaceAll("”","").replaceAll("\\n","\n")
         continue
     }
-      console.log('pass check #1')
       if(splittext[t].startsWith("print")){
         console.log(window.vars.get(splittext[t].replace("print(","").slice(0,-1)))
         if(window.vars.get(splittext[t].replace("print(","").slice(0,-1)) !== undefined){
@@ -44,6 +43,15 @@ var linuxMessage = `` /**/
         console.log(parts,name,value,window.vars)
         window.vars.set(name,value)
         console.log(window.vars)
+      }
+      
+      if(splittext[t].startsWith("base64.") & window.mods['base64'] === true){
+        var cmd = splittext[t].split(".")
+        if(cmd[1].startsWith('b64encode')){
+          cmd.shift(0)
+          cmd = cmd.join(".")
+          
+        }
       }
       
       if(splittext[t].startsWith("os.") & window.mods["os"] === true){
