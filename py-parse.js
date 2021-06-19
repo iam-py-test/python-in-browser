@@ -13,15 +13,22 @@ var linuxMessage = `` /**/
   document.getElementById("run").onclick = async function(){
     var text = document.getElementById("writepy").innerText
     var splittext = text.split("\n")
+    var line = 0
     for(var t = 0;t < splittext.length;t++){
       console.log(t,splittext[t])
-      
+      line += 1
+      console.log(line)
       if(splittext[t] === 'exit()'){
         return;
       }
       if(splittext[t].startsWith("--config")){
+        console.log("Config mode:")
+        var s = document.createElement('p')
+        s.style.color = 'red'
+        s.innerHTML = "<span>Entered config mode</span>"
+        document.getElementById('output').appendChild(s)
         if(splittext[t].startsWith("--config errormode")){
-           var mode = splittext[t].replace("--config errormode ")
+           var mode = splittext[t].replace("--config errormode ","")
            if(mode === "0"){
              window.config.errorMode = 0
            }
@@ -55,7 +62,7 @@ var linuxMessage = `` /**/
           }
           if(window.config.errorMode === 2){
             document.getElementById('output').innerText += `\nTraceback (most recent call last):
-File "<stdin>", line ${t}, in <module>
+File "<stdin>", line ${line}, in <module>
 NameError: name '${splittext[t].replace("print(","").slice(0,-1)}' is not defined`
             return false;
           }
