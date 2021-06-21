@@ -97,7 +97,13 @@ NameError: name '${splittext[t].replace("print(","").slice(0,-1)}' is not define
         }
       }
       
-      if(splittext[t].startsWith("os.") & window.mods["os"] === true){
+      if(splittext[t].startsWith("os.")){
+        if(window.mods["os"] !== true){
+          document.getElementById('output').innerText += `\nTraceback (most recent call last):
+File "<stdin>", line ${line}, in <module>
+NameError: module 'os' was used but not imported`
+          return;
+        }
         var cmd = splittext[t].split(".")
         cmd.shift(0)
         cmd = cmd.join(".") 
