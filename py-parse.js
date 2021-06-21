@@ -104,7 +104,7 @@ NameError: name '${splittext[t].replace("print(","").slice(0,-1)}' is not define
         console.log(cmd)
         
         if(cmd.startsWith("remove(")){
-           var frm = cmd.replace("remove(").slice(1,-2)
+           var frm = cmd.replace("remove(","").slice(1,-2)
            console.log(frm)
            delete window.fs[frm]
            }
