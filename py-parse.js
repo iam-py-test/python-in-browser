@@ -89,7 +89,7 @@ NameError: name '${splittext[t].replace("print(","").slice(0,-1)}' is not define
           cmd.shift(0)
           cmd = cmd.join(".")
           console.log(cmd)
-          var toencode = cmd.replace("b64encode(bytes('","").slice(0,-12)
+          var toencode = cmd.replace("b64encode(\"","").slice(0,-2)
           console.log(toencode)
           console.log(btoa(toencode))
           document.getElementById('output').innerText += "\n" + btoa(toencode)
