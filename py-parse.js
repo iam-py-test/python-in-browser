@@ -74,6 +74,11 @@ NameError: name '${splittext[t].replace("print(","").slice(0,-1)}' is not define
         window.mods[splittext[t].split(" ")[1]] = true
       }
       
+      if(splittext[t].startsWith('if')){
+        var parts = splittext[t].replace("if ","").slice(0,-1).split("==")
+        console.log(parts)
+      }
+      
       if(splittext[t].includes(" = \"") === true){
         var parts = splittext[t].split(" = ")
         var name = parts[0]
@@ -82,6 +87,8 @@ NameError: name '${splittext[t].replace("print(","").slice(0,-1)}' is not define
         window.vars.set(name,value)
         console.log(window.vars)
       }
+      
+      
       
       if(splittext[t].startsWith("base64.") & window.mods['base64'] === true){
         var cmd = splittext[t].split(".")
