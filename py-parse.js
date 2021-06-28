@@ -77,6 +77,9 @@ NameError: name '${splittext[t].replace("print(","").slice(0,-1)}' is not define
       if(splittext[t].startsWith('if')){
         var parts = splittext[t].replace("if ","").slice(0,-1).split("==")
         console.log(parts)
+        if(parts[0] === "True"){
+          
+        }
       }
       
       if(splittext[t].includes(" = \"") === true){
